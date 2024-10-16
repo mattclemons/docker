@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Employee 1-on-1 Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        color: #333;
+      }
+      h1 {
+        color: #2e8b57;
+        text-align: center;
+      }
+      .dashboard-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 20px;
+      }
+      .dashboard-item {
+        background-color: #ffffff;
+        border: 2px solid #4682b4;
+        border-radius: 8px;
+        padding: 20px;
+        width: 300px;
+        margin: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      .dashboard-item h2 {
+        color: #4682b4;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Employee 1-on-1 Dashboard</h1>
+    <div class="dashboard-container">
+      <div class="dashboard-item">
+        <h2>Performance Rating Distribution</h2>
+        <canvas id="performanceRatingChart"></canvas>
+      </div>
+      <div class="dashboard-item">
+        <h2>Engagement Level Distribution</h2>
+        <canvas id="engagementLevelChart"></canvas>
+      </div>
+      <div class="dashboard-item">
+        <h2>Workload Assessment Distribution</h2>
+        <canvas id="workloadAssessmentChart"></canvas>
+      </div>
+      <div class="dashboard-item">
+        <h2>Well-being Distribution</h2>
+        <canvas id="wellBeingChart"></canvas>
+      </div>
+      <div class="dashboard-item">
+        <h2>Grade Distribution</h2>
+        <canvas id="gradeChart"></canvas>
+      </div>
+    </div>
+
+    <script>
+      // Dummy data for the charts
+      const data = {
+        performanceRating: [10, 15, 5, 7],
+        engagementLevel: [12, 20, 8],
+        workloadAssessment: [18, 10, 5],
+        wellBeing: [10, 8, 7, 5, 12],
+        grade: [15, 10, 12, 5]
+      };
+
+      // Performance Rating Chart
+      new Chart(document.getElementById('performanceRatingChart'), {
+        type: 'pie',
+        data: {
+          labels: ['Excellent', 'Good', 'Average', 'Needs Improvement'],
+          datasets: [{
+            data: data.performanceRating,
+            backgroundColor: ['#4caf50', '#2196f3', '#ffeb3b', '#f44336']
+          }]
+        }
+      });
+
+      // Engagement Level Chart
+      new Chart(document.getElementById('engagementLevelChart'), {
+        type: 'bar',
+        data: {
+          labels: ['High', 'Medium', 'Low'],
+          datasets: [{
+            label: 'Engagement Level',
+            data: data.engagementLevel,
+            backgroundColor: ['#4caf50', '#ffeb3b', '#f44336']
+          }]
+        }
+      });
+
+      // Workload Assessment Chart
+      new Chart(document.getElementById('workloadAssessmentChart'), {
+        type: 'bar',
+        data: {
+          labels: ['Manageable', 'High', 'Low'],
+          datasets: [{
+            label: 'Workload Assessment',
+            data: data.workloadAssessment,
+            backgroundColor: ['#2196f3', '#f44336', '#4caf50']
+          }]
+        }
+      });
+
+      // Well-being Chart
+      new Chart(document.getElementById('wellBeingChart'), {
+        type: 'doughnut',
+        data: {
+          labels: ['Positive', 'Stressed', 'Anxious', 'Burnout Signs', 'Healthy and Motivated'],
+          datasets: [{
+            data: data.wellBeing,
+            backgroundColor: ['#4caf50', '#f44336', '#ff9800', '#ff5722', '#2196f3']
+          }]
+        }
+      });
+
+      // Grade Distribution Chart
+      new Chart(document.getElementById('gradeChart'), {
+        type: 'pie',
+        data: {
+          labels: ['A (High Skill, High Drive)', 'B (High Skill, Low Drive)', 'B (Low Skill, High Drive)', 'C (Low Skill, Low Drive)'],
+          datasets: [{
+            data: data.grade,
+            backgroundColor: ['#4caf50', '#2196f3', '#ffeb3b', '#f44336']
+          }]
+        }
+      });
+    </script>
+  </body>
+</html>
+

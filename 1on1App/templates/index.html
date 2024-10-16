@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Employee 1-on-1 Tracker</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        color: #333;
+      }
+      h1 {
+        color: #2e8b57;
+        text-align: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      th {
+        background-color: #4682b4;
+        color: white;
+        padding: 10px;
+      }
+      td {
+        padding: 10px;
+        border: 1px solid #4682b4;
+      }
+      label {
+        font-weight: bold;
+        color: #2e8b57;
+      }
+      input[type="text"], input[type="date"], textarea, select {
+        width: 100%;
+        padding: 8px;
+        margin: 4px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      input[type="submit"] {
+        background-color: #4682b4;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #2e8b57;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Employee 1-on-1 Tracker</h1>
+    <form action="/add_meeting" method="post">
+      <table>
+        <tr>
+          <td><label for="employee_name">Employee Name:</label></td>
+          <td><input type="text" id="employee_name" name="employee_name"></td>
+        </tr>
+        <tr>
+          <td><label for="date_of_meeting">Date of Meeting:</label></td>
+          <td><input type="date" id="date_of_meeting" name="date_of_meeting"></td>
+        </tr>
+        <tr>
+          <td><label for="next_meeting_date">Next Meeting Date:</label></td>
+          <td><input type="date" id="next_meeting_date" name="next_meeting_date"></td>
+        </tr>
+        <tr>
+          <td><label for="notes">Notes:</label></td>
+          <td><textarea id="notes" name="notes" rows="5" cols="50"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="follow_up_actions">Follow-up Actions:</label></td>
+          <td><textarea id="follow_up_actions" name="follow_up_actions" rows="5" cols="50"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="topics">Topics Discussed:</label></td>
+          <td><textarea id="topics" name="topics" rows="5" cols="50"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="employee_goals">Employee Goals:</label></td>
+          <td><textarea id="employee_goals" name="employee_goals" rows="5" cols="50"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="challenges_faced">Challenges Faced:</label></td>
+          <td><textarea id="challenges_faced" name="challenges_faced" rows="5" cols="50"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="achievements">Achievements:</label></td>
+          <td><textarea id="achievements" name="achievements" rows="5" cols="50"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="skills_to_improve">Skills to Improve:</label></td>
+          <td><textarea id="skills_to_improve" name="skills_to_improve" rows="5" cols="50"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="support_needed">Support Needed:</label></td>
+          <td><textarea id="support_needed" name="support_needed" rows="5" cols="50"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="employee_feedback">Employee Feedback:</label></td>
+          <td><textarea id="employee_feedback" name="employee_feedback" rows="5" cols="50"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="managers_observations">Manager's Observations:</label></td>
+          <td><textarea id="managers_observations" name="managers_observations" rows="5" cols="50"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="performance_rating">Performance Rating:</label></td>
+          <td>
+            <select id="performance_rating" name="performance_rating">
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Average">Average</option>
+              <option value="Needs Improvement">Needs Improvement</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="engagement_level">Engagement Level:</label></td>
+          <td>
+            <select id="engagement_level" name="engagement_level">
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="workload_assessment">Workload Assessment:</label></td>
+          <td>
+            <select id="workload_assessment" name="workload_assessment">
+              <option value="Manageable">Manageable</option>
+              <option value="High">High</option>
+              <option value="Low">Low</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="well_being">Well-being:</label></td>
+          <td>
+            <select id="well_being" name="well_being">
+              <option value="Positive">Positive</option>
+              <option value="Stressed">Stressed</option>
+              <option value="Anxious">Anxious</option>
+              <option value="Burnout Signs">Burnout Signs</option>
+              <option value="Healthy and Motivated">Healthy and Motivated</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="grade">Grade:</label></td>
+          <td>
+            <select id="grade" name="grade">
+              <option value="A (High Skill, High Drive)">A (High Skill, High Drive)</option>
+              <option value="B (High Skill, Low Drive)">B (High Skill, Low Drive)</option>
+              <option value="B (Low Skill, High Drive)">B (Low Skill, High Drive)</option>
+              <option value="C (Low Skill, Low Drive)">C (Low Skill, Low Drive)</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <input type="submit" value="Add Meeting">
+    </form>
+
+    <h2>Previous Meetings</h2>
+    <table>
+      <tr>
+        <th>Employee Name</th>
+        <th>Date of Meeting</th>
+        <th>Next Meeting Date</th>
+        <th>Notes</th>
+        <th>Follow-up Actions</th>
+        <th>Topics</th>
+        <th>Grade</th>
+        <th>Employee Goals</th>
+        <th>Employee Feedback</th>
+        <th>Challenges Faced</th>
+        <th>Achievements</th>
+        <th>Skills to Improve</th>
+        <th>Support Needed</th>
+        <th>Performance Rating</th>
+        <th>Engagement Level</th>
+        <th>Workload Assessment</th>
+        <th>Well-being</th>
+        <th>Managers Observations</th>
+      </tr>
+      {% for meeting in meetings %}
+      <tr>
+        <td>{{ meeting[0] }}</td>
+        <td>{{ meeting[1] }}</td>
+        <td>{{ meeting[2] }}</td>
+        <td>{{ meeting[3] }}</td>
+        <td>{{ meeting[4] }}</td>
+        <td>{{ meeting[5] }}</td>
+        <td>{{ meeting[6] }}</td>
+        <td>{{ meeting[7] }}</td>
+        <td>{{ meeting[8] }}</td>
+        <td>{{ meeting[9] }}</td>
+        <td>{{ meeting[10] }}</td>
+        <td>{{ meeting[11] }}</td>
+        <td>{{ meeting[12] }}</td>
+        <td>{{ meeting[13] }}</td>
+        <td>{{ meeting[14] }}</td>
+        <td>{{ meeting[15] }}</td>
+        <td>{{ meeting[16] }}</td>
+        <td>{{ meeting[17] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
