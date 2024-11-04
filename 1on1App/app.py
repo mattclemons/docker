@@ -3,7 +3,6 @@ import sqlite3
 import csv
 import os
 from fpdf import FPDF
-import json
 
 app = Flask(__name__)
 
